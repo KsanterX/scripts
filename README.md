@@ -4,7 +4,7 @@ Legend:
 
 `scriptname` - script file
 
-*_install - script installation file
+`scriptname_install` - script installation file
 
 #BASH:
 
