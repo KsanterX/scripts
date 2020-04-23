@@ -8,4 +8,4 @@ Legend:
 
 #BASH:
 
-touchf - creates file and all the necessary directory structure
+`touchf` - creates file and all the necessary directory structure
