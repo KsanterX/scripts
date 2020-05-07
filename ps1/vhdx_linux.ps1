@@ -4,13 +4,6 @@ param (
     $size=127GB
 )
 
-If ($path -ne '') {
-$fullpath = (Join-Path $path $diskname)
-MainFunction
-} else {
-errors(0)
-}
-
 function MainFunction {
 if (checkPath) {
     if (-Not (checkDisk)) {
@@ -61,4 +54,11 @@ switch ($code)
     'Attention!!! Disk with this name already exists. Overwrite?'
 }
 }
+}
+
+If ($path -ne '') {
+$fullpath = (Join-Path $path $diskname)
+MainFunction
+} else {
+errors(0)
 }
