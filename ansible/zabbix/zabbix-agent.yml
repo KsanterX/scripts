@@ -1,0 +1,20 @@
+---
+- hosts: "{{ agent_hosts }}"
+  ignore_unreachable: true
+  become: true
+  tasks:
+  - name: Install Zabbix agent
+    package:
+      name: zabbix-agent
+      state: latest
+  - name: Edit Zabbix agent configuration
+    lineinfile:
+      path: /etc/zabbix_agentd.conf
+      regexp: "Server=127.0.0.1"
+      line: "Server={{ zabbix_server }}"
+      backup: yes
+  - name: Start and enable Zabbix agent
+    service:
+      name: zabbix-agent
+      state: started
+      enabled: yes
